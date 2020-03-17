@@ -12,6 +12,12 @@ body {
   align-items: center
 }
 
+#panel3 {
+position: relative;
+margin:0 auto;
+line-height: 1.4em;
+}
+
 #defaultCanvas0 {
   padding-left: 0;
   padding-right: 0;
@@ -50,3 +56,4 @@ p {
 h1 {
   text-align:center;
 }
+
