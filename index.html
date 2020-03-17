@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="persona.js"></script>
+  <script language="javascript" type="text/javascript" src="difusion_coronavirus.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+
+</head>
+
+<body>
+
+ <div id="panel1">
+  <h1>Simulación de difusión de coronavirus</h1>
+  <p>Una simulación de la difusión del coronavirus de acuerdo a tres parametros manipulables por el usuario: población, tasa de mortalidad y distancia social. También se incluye un tiempo de recuperación. </p>
+  <p>Basado inicialmente en este artículo del <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator-spanish/" target="_blank">Washington Post</a></p> 
+  <p>Cada actor se mueve de forma aleatoria. La distancia social implica un porcentaje de quietud en la visualización. Se recomienda los siguientes parametros de inicio para observar diferencias en la evolución:</p>
+  <ul>
+    <li>Para el crecimiento cuasi exponencial de la difusión: población:200-500, tasa de mortalidad:3-7%, distancia social:0%. Se puede apreciar el ascenso rápido de la curva epidémica en amarillo, cuando se aumenta la población aunque la tasa de mortalidad sea baja.</li>
+    <li>Medida de mitigación leve. Distancia social: 35%. Aunque existe un aplanamiento leve de la curva de contagio, este no es suficiente.</li>
+    <li>Medida de mitigación fuerte. Distancia social: 90%. Aquí se puede osbservar el "aplanamiento de la curva epidémica". Esta es la opción que no colapsa los sistemas de salud precarios.</li>
+  </ul>
+</div>
+
+<div id="panel2">
+  <table align="center">
+   <tr>
+    <th>Parametro</th>
+    <th>Ajuste</th>
+    <th>Valor</th>
+  </tr>
+  <tr>
+    <td>Población</td>
+    <td><input id="pobSlider" type="range" min="50" max="500" value="200" style="width: 100px;"></td>
+    <td id="pob">200</td>
+  </tr>
+  <tr>
+    <td>Tasa de mortalidad</td>
+    <td><input id="mortSlider"type="range" min="0" max="100" value="7" style="width: 100px;"></td>
+    <td id="mort">7</td>
+  </tr>
+  <tr>
+    <td>Distancia social</td>
+    <td><input id="socSlider" type="range" min="0" max="100" value="0"  style="width: 100px;"></td>
+    <td id="soc">0</td>
+  </tr>
+</table>
+<button  id="ini" align="center">INICIAR SIMULACION</button>
+</div>
+
+<div id="panel3"></div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+body {
+  padding: 12;
+  font-family: 'Roboto';font-size: 1em;
+}
+
+#panel2, #panel3 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  float: left;
+  padding: 16;
+  justify-content: center;
+  align-items: center
+}
+
+#defaultCanvas0 {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+th, td {
+ padding: 
+ 15px;
+ text-align: 
+ center;
+ border-bottom: 
+ 1px solid #ddd;
+}
+
+#ini {
+  display: table;
+  margin: 0 auto;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+  background-color:#f9f9f9;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  cursor:pointer;
+  color:#666666;
+  padding:6px 24px;
+  text-shadow:0px 1px 0px #ffffff;
+}
+
+p {
+  align: justify;
+}
+h1 {
+  text-align:center;
+}
