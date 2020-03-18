@@ -9,7 +9,7 @@
     .wrapper {
         max-width: 1024px;
         margin: 0 auto;
-        font: 1em Helvetica, arial, sans-serif;
+        font: 1em Roboto, Helvetica, arial, sans-serif;
     }
 
     .wrapper > * {
@@ -53,6 +53,7 @@
   }
 
 }
+
 @media (min-width: 700px) {
   .wrapper {
     grid-template-columns: 1fr 4fr 1fr;
@@ -61,6 +62,7 @@
       "nav    content"
       "footer footer"
    }
+ }
 
 
 /*.wrapper {
@@ -121,7 +123,8 @@ th, td {
 }
 
 p {
-  align: justify;
+  text-align: justify;
+  text-justify: inter-word;
 }
 h1 {
   text-align:center;

@@ -13,7 +13,7 @@ Se puso el gráfico en un envoltorio HTML, se tradujeron las variables, se modif
 */
 
 var poblacion = 200;
-var tamanoPersona = 15;
+var tamanoPersona = 12;
 var tiempoRecuperacion = 800; 
 var tasaMortalidad = 7; // sobre 100%
 var distanciaSocial = 0; // sobre 100%. Recomendados: 0, 30, 85

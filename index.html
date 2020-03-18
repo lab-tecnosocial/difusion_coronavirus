@@ -26,12 +26,25 @@
  <header class="main-head">
   <h1>Simulación de difusión de coronavirus</h1>
   <h2><a href="http://labtecnosocial.org/" target="_blank">Lab TecnoSocial</a></h2>
-  <p>Una simulación interactiva de la difusión del coronavirus de acuerdo a tres parametros modificables: población, tasa de mortalidad y distancia social. También se incluye un tiempo de recuperación. Basado inicialmente en este artículo del <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator-spanish/" target="_blank">Washington Post.</a> Se parte de un paciente cero que no guarda distancia social. Primero se deben establecer los parametros y luego dar clic en el botón "iniciar simulación" Cada actor se mueve de forma aleatoria. La distancia social implica un porcentaje de quietud en la visualización. Se recomienda los siguientes parametros de inicio para observar diferencias en la evolución de la propagación:</p>
-  <ul>
-    <li>Para el crecimiento cuasi exponencial de la difusión: población:200-500, tasa de mortalidad:3-7%, distancia social:0%. Se puede apreciar el ascenso rápido de la curva epidémica en amarillo. A mayor población activa mayor difusión.</li>
-    <li>Medida de mitigación leve. Distancia social: 35%. Aunque existe un aplanamiento leve de la curva de contagio, este no es suficiente.</li>
-    <li>Medida de mitigación fuerte. Distancia social: 90%. Aquí se puede osbservar el "aplanamiento de la curva epidémica". Esta es la opción que no colapsa los sistemas de salud precarios.</li>
-  </ul>
+  <p>Una simulación interactiva de la difusión del coronavirus de acuerdo a tres parametros modificables: población, tasa de mortalidad y distancia social. Se parte de una población sana (nodos verdes) con posiciones y movimientos aleatorios, donde existe un paciente cero portador del virus. Se ve rápidamente cómo crece el contagio por cruce entre nodos y aparece una población enferma (nodos amarillos) con el conseguiente crecimiento cuasi exponencial de la curva epidémica (amarilla). A medida que evoluciona el contagio aparecen decesos (nodos rojos) pero también personas recuperadas (nodos lilas). Una vez que el brote está completo se puede examinar el gráfico de area debajo de la simulación y observar el crecimiento en el tiempo de las distintas poblaciones a partir de los parametros establecidos en el panel de controles.</p>
+  <p>Es recomendable realizar varias simulaciones con parametros distintos y examinar sus respectivos gráficos de area. Para ello se deben establecer los parametros y luego dar clic en el botón "iniciar simulación". Se recomienda los tres siguientes conjuntos de parametros de inicio para observar diferencias en la evolución del contagio:</p>
+    <ul>
+    <li>Crecimiento cuasi exponencial de la difusión: 
+      <ul>
+        <li>Población: 50 a 500. Entre más grande la población más rápido el contagio.</li>
+        <li>Tasa de mortalidad: 3 a 7%. La tasa de mortalidad varía de acuerdo a las franjas de edad y los sistemas de salud nacionales. La OMS ha estimado a 3 de marzo de 2020 <a href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/" target="_blank">una tasa de mortalidad global del 3,4%</a>, mientras la gripe estacional sólo tienen una tasa del 1%. Pero en personas de la tercera edad la tasa de mortalidad puede llegar <a href="https://elpais.com/ciencia/2020-03-14/cual-es-la-tasa-de-letalidad-del-nuevo-coronavirus-en-las-personas-mayores.html" target="_blank">hasta el 16,6% como en el caso de Italia</a>.</li>
+        <li>Distancia social: 0%. Con este parametro se puede apreciar el ascenso rápido de la curva epidémica en amarillo. A mayor interacción mayor difusión. La distancia social en la simulación se visualiza como el porcentaje de la población que reduce sus movimientos e interacciones.</li>
+      </ul>
+    <li>Medida de mitigación leve:</li>
+      <ul>
+        <li> Distancia social: 40%. Aunque existe un crecimiento menos vertiginoso y un cierto aplanamiento leve de la curva de contagio, éste no es suficiente.</li>
+      </ul>
+    <li>Medida de mitigación fuerte:</li>
+      <ul>
+        <li>Distancia social: 90%. Aquí se puede osbservar con claridad el "aplanamiento de la curva epidémica" (curva amarilla). Para el caso de los sistemas de salud precarios, como el de Bolivia, esta medida busca evitar el colapso en la atención de enfermos de coronavirus, como ya se está dando en <a href="https://elpais.com/espana/madrid/2020-03-09/madrid-sufre-los-recortes-y-se-arriesga-al-colapso-sanitario-por-el-coronavirus.html" href="_blank">España.</a></li>
+      </ul>
+      
+   </ul>
 </header>
 
 <nav class="main-nav">
@@ -62,9 +75,8 @@
 
 <article id="content"></article>
 <footer class="main-footer">
-  <p>El código de la simulación puede verse en el siguiente <a href="https://github.com/lab-tecnosocial/difusion_coronavirus" target="_blank">repositorio</a></p>
+  <p>Esta simulación tiene un objetivo didáctico y está basada inicialmente en las ideas de este artículo del <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator-spanish/" target="_blank">Washington Post</a>. Nosotros añadimos la interacción, la ui en HTML y CSS, los parametros modificables en JavaScript para el usuario y modificamos algunas variables. El código de nuestra simulación puede verse en el siguiente <a href="https://github.com/lab-tecnosocial/difusion_coronavirus" target="_blank">repositorio</a>.</p>
 </footer>
-
 
 
 </div>
