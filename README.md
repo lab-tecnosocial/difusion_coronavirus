@@ -9,4 +9,5 @@ Se puso el gráfico en un envoltorio HTML, se añadió un panel interactivo para
 To Do:
 - Integrar sistema de colisiones
 - Integrar barreras físicas
+- Integrar un gráfico de lineas aparte del de areas
 - Hacer una versión de nodos con redes asortativas (difusión vía redes)
