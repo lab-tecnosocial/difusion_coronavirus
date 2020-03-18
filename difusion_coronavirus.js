@@ -68,7 +68,7 @@ function setup() {
   createP('');
   
   let canvas = createCanvas(_limites, _limites + 100);
-  canvas.parent('panel3');
+  canvas.parent('content');
 
   img = loadImage('logo-lab.png');
 
@@ -103,7 +103,7 @@ function draw() {
   } else {
     displayGrapth();
   }
-  image(img, 500, 520, img.width / 3, img.height / 3);
+  image(img, 520, 540, img.width / 4, img.height / 4);
 }
 
 

@@ -1,10 +1,80 @@
 
-body {
+/*body {
   padding: 12;
   font-family: 'Roboto';font-size: 1em;
+}*/
+
+* {box-sizing: border-box;}
+
+    .wrapper {
+        max-width: 1024px;
+        margin: 0 auto;
+        font: 1em Helvetica, arial, sans-serif;
+    }
+
+    .wrapper > * {
+        border: 1px solid #f08c00;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+
+.main-head {
+  grid-area: header;
+}
+#content {
+  grid-area: content;
+}
+.main-nav {
+  grid-area: nav;
 }
 
-#panel2, #panel3 {
+.main-footer {
+  grid-area: footer;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+    "header"
+    "nav"
+    "content"
+    "footer";
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+      "header  header"
+      "nav     nav"
+      "content content"
+      "footer      footer";
+  }
+
+}
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: 
+      "header header "
+      "nav    content"
+      "footer footer"
+   }
+
+
+/*.wrapper {
+    display: grid;  
+    grid-gap: 1rem;  
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-rows: repeat(2, 500px);  
+    grid-column-start: 1;
+    grid-column-end: 4;
+}*/
+
+
+
+/*#panel2, #panel3 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   float: left;
   padding: 16;
@@ -16,7 +86,7 @@ body {
 position: relative;
 margin:0 auto;
 line-height: 1.4em;
-}
+}*/
 
 #defaultCanvas0 {
   padding-left: 0;
