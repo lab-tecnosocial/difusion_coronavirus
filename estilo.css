@@ -17,11 +17,17 @@
 .main-head {
   grid-area: header;
 }
+
+.main-nav {
+  grid-area: nav;
+}
+
 #content {
   grid-area: content;
 }
-.main-nav {
-  grid-area: nav;
+
+.card {
+  grid-area: card;
 }
 
 .main-footer {
@@ -34,6 +40,7 @@
     "header"
     "nav"
     "content"
+    "card"
     "footer";
 }
 
@@ -44,6 +51,7 @@
       "header"
       "nav"
       "content"
+      "card"
       "footer";
   }
 
@@ -55,6 +63,7 @@
     grid-template-areas: 
       "header header "
       "nav    content"
+      "card card"
       "footer footer"
    }
  }
