@@ -7,6 +7,7 @@ Basada inicialmente en las ideas de este artículo: https://www.washingtonpost.c
 Se puso el gráfico en un envoltorio HTML, se añadió un panel interactivo para modificar los parametros con CSS y JavaScript, se tradujeron las variables y se agregaron descripciones del módelo.
 
 To Do:
+- Transformar a CSS grid.
 - Integrar sistema de colisiones
 - Integrar barreras físicas
 - Integrar un gráfico de lineas aparte del de areas
