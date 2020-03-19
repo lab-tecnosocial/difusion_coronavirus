@@ -10,9 +10,7 @@
     .wrapper > * {
         border-radius: 5px;
         padding: 15px;
-        /*box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);*/
         box-shadow: 0 3px 7px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23);
-        margin: 0.1em;
     }
 
 
@@ -61,13 +59,6 @@
    }
  }
 
-#defaultCanvas0 {
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
 
 th, td {
  padding: 15px;
