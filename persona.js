@@ -1,48 +1,48 @@
-function Person(x, y) {
+function Persona(x, y) {
   this.pos = new p5.Vector(x, y);
   this.vel = p5.Vector.random2D();
-  this.state = SANO;
-  this.infectedTime = 0;
+  this.estado = SANO;
+  this.tiempoInfeccion = 0;
   
-  this.move = function() {
-    if (this.state == MUERTO) {
+  this.mover = function() {
+    if (this.estado == MUERTO) {
       return;
     }
     
     this.pos.add(this.vel);
-    this.keepInBounds();
+    this.mantenerEnLimites();
     
-    if (this.state == ENFERMO) {
-      this.infectOthers();
-      this.tryToRecover();
+    if (this.estado == ENFERMO) {
+      this.infectarOtros();
+      this.intentarRecuperarse();
     }
   }
   
-  this.infectOthers = function() {
+  this.infectarOtros = function() {
     for (let i = 0; i < _personas.length; i++) {
       let other = _personas[i];
-      if (this == other || other.state != SANO) {
+      if (this == other || other.estado != SANO) {
         continue;
       }
 
       if (dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y) < tamanoPersona) {
-        other.setState(ENFERMO);
-        other.infectedTime = frameCount;
+        other.setEstado(ENFERMO);
+        other.tiempoInfeccion = frameCount;
       }
     }
   }
   
-  this.tryToRecover = function() {
-    if (frameCount > this.infectedTime + tiempoRecuperacion) {
+  this.intentarRecuperarse = function() {
+    if (frameCount > this.tiempoInfeccion + tiempoRecuperacion) {
       if (random() < tasaMortalidad / 100.0) {
-        this.setState(MUERTO);
+        this.setEstado(MUERTO);
       } else {
-        this.setState(RECUPERADO);
+        this.setEstado(RECUPERADO);
       }
     }
   }
   
-  this.keepInBounds = function() {
+  this.mantenerEnLimites = function() {
     let halfSize = tamanoPersona / 2;
     
     if (this.pos.x - halfSize < 0 || this.pos.x + halfSize > _limites) {
@@ -59,29 +59,29 @@ function Person(x, y) {
   this.display = function() {
     strokeWeight(tamanoPersona);
     
-    if (this.state == SANO) {
+    if (this.estado == SANO) {
       stroke(_colorSanos);
-    } else if (this.state == ENFERMO) {
+    } else if (this.estado == ENFERMO) {
       stroke(_colorEnfermos);
-    } else if (this.state == RECUPERADO) {
+    } else if (this.estado == RECUPERADO) {
       stroke(_colorRecuperados);
-    } else if (this.state == MUERTO) {
+    } else if (this.estado == MUERTO) {
       stroke(_colorMuertos);
     }
     
     point(this.pos.x, this.pos.y);
   }
   
-  this.setState = function(newState) {
-    this.state = newState;
+  this.setEstado = function(nuevoEstado) {
+    this.estado = nuevoEstado;
     
-    if (newState == ENFERMO) {
+    if (nuevoEstado == ENFERMO) {
       _nSanos --;
       _nEnfermos++;
-    } else if (this.state == RECUPERADO) {
+    } else if (this.estado == RECUPERADO) {
       _nEnfermos--;
       _nRecuperados++;
-    } else if (this.state == MUERTO) {
+    } else if (this.estado == MUERTO) {
       _nEnfermos--;
       _nMuertos++;
     }

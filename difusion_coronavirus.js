@@ -16,7 +16,7 @@ var poblacion = 200;
 var tamanoPersona = 12;
 var tiempoRecuperacion = 800; 
 var tasaMortalidad = 7; // sobre 100%
-var distanciaSocial = 0; // sobre 100%. Recomendados: 0, 30, 85
+var distanciaSocial = 0; // sobre 100%
 
 
 var _limites = 600;
@@ -42,9 +42,8 @@ const MUERTO = 3;
 
 function setup() {
   background(51);
-
   
-  // Panel de datos
+  // Panel de control
   
   pob = select('#pob');
   mort = select('#mort');
@@ -66,19 +65,18 @@ function setup() {
   ini.mousePressed(iniciar);
   
   createP('');
+
+  // Canvas y logo
   
   let canvas = createCanvas(_limites, _limites + 100);
   canvas.parent('content');
 
   img = loadImage('logo-lab.png');
-
   
   resetSim();
 }
 
 function draw() {
-
-  
   poblacion = pobSlider.value();
   tasaMortalidad = mortSlider.value();
   distanciaSocial = socSlider.value();
@@ -92,16 +90,16 @@ function draw() {
   rect(0, 0, _limites, _limites);
   
   for (let i = 0; i < _personas.length; i++) {
-    _personas[i].move();
+    _personas[i].mover();
     _personas[i].display();
   }
   
-  displayStats();
+  estadisticas();
   
   if (_nEnfermos == 0) {
-    displayEnd();
+    final();
   } else {
-    displayGrapth();
+    graficoArea();
   }
   image(img, 520, 540, img.width / 4, img.height / 4);
 }
@@ -121,7 +119,7 @@ function resetSim() {
   rect(0, _limites, _limites, _limites - 100);
   
   for (let i = 0; i < poblacion; i++) {
-    let person = new Person(random(_limites), random(_limites));
+    let person = new Persona(random(_limites), random(_limites));
     _personas.push(person);
     
     if (i / poblacion * 100 < distanciaSocial) {
@@ -130,12 +128,14 @@ function resetSim() {
     }
   }
   
-  let patientZero = _personas[floor(random() * _personas.length)];
-  patientZero.setState(ENFERMO);
-  patientZero.vel = p5.Vector.random2D(); // El paciente cero no práctica distancia social
+  let pacienteCero = _personas[floor(random() * _personas.length)];
+  pacienteCero.setEstado(ENFERMO);
+  pacienteCero.vel = p5.Vector.random2D(); // El paciente cero no práctica distancia social
 }
 
-function displayStats() {
+
+
+function estadisticas() {
   noStroke();
   textAlign(LEFT);
   textSize(14);
@@ -146,19 +146,19 @@ function displayStats() {
   fill(0);
   
   fill(_colorSanos);
-  text("Sanos: " + _nSanos + " (" + percentage(_nSanos, _personas.length) + "%)", 10, 20);
+  text("Sanos: " + _nSanos + " (" + porcentaje(_nSanos, _personas.length) + "%)", 10, 20);
   
   fill(_colorEnfermos);
-  text("Enfermos: " + _nEnfermos + " (" + percentage(_nEnfermos, _personas.length) + "%)", 10, 40);
+  text("Enfermos: " + _nEnfermos + " (" + porcentaje(_nEnfermos, _personas.length) + "%)", 10, 40);
   
   fill(_colorMuertos);
-  text("Decesos: " + _nMuertos + " (" + percentage(_nMuertos, _personas.length) + "%)", 10, 60);
+  text("Decesos: " + _nMuertos + " (" + porcentaje(_nMuertos, _personas.length) + "%)", 10, 60);
   
   fill(_colorRecuperados);
-  text("Recuperados: " + _nRecuperados + " (" + percentage(_nRecuperados, _personas.length) + "%)", 10, 80);
+  text("Recuperados: " + _nRecuperados + " (" + porcentaje(_nRecuperados, _personas.length) + "%)", 10, 80);
 }
 
-function displayGrapth() {
+function graficoArea() {
   let sickHeight = map(_nEnfermos, 0, _personas.length, height - 100, height) - _limites;
   let normalHeight = map(_nSanos, 0, _personas.length, height - 100, height) - _limites;
   let recoveryHeight = map(_nRecuperados, 0, _personas.length, height - 100, height) - _limites;
@@ -186,7 +186,7 @@ function displayGrapth() {
   //y -= recoveryHeight;
 }
 
-function displayEnd() {
+function final() {
   noStroke();
   fill(0);
   textAlign(CENTER);
@@ -194,7 +194,7 @@ function displayEnd() {
   text("Brote completo", width / 2, height / 2);
 }
 
-function percentage(value, maxValue) {
+function porcentaje(value, maxValue) {
   return (value / maxValue * 100.0).toFixed(1);
 }
 
