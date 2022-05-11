@@ -71,7 +71,7 @@ function setup() {
   let canvas = createCanvas(_limites, _limites + 100);
   canvas.parent('content');
 
-  img = loadImage('logo-lab.png');
+  img = loadImage('logolab.png');
   
   resetSim();
 }
